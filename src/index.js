@@ -1,22 +1,8 @@
 import './scss/styles.scss';
-import { Movie } from './movie.js';
+import Movie from './movie.js';
 import $ from 'jquery';
 import movieList from './movie-list.csv';
-
-
-
-function processData(allText) {
-  var allTextLines = allText.split(/\r\n|\n/);
-  var headers = allTextLines[0].split('","');
-  var lines = [];
-
-  for (var i=1; i<allTextLines.length; i++) {
-    var data = allTextLines[i].split('","');
-
-    lines.push(data);
-  }
-  return lines;
-}
+import {processData} from './process-data.js';
 
 $(document).ready(function() {
 
@@ -40,4 +26,5 @@ $(document).ready(function() {
   }, function(error){
     console.log(error);
   });
+
 });
