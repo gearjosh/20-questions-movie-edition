@@ -5,13 +5,17 @@ import { readCSV } from './../src/read-csv.js'
 
 describe('chooseMovie', function() {
 
+  const body = readCSV(movieList);
+  // console.log(body);
   // beforeEach(() => {
 
-  it('should return a random movie name from movie-list.csv', function() {
-    const actual = chooseMovie(39, body);
-    const control = "Raiders of the Lost Ark";
-    expect(actual).toEqual(control);
-  };
+  it('should return raiders of the lost ark from movie-list.csv', function() {
+    setTimeout(() => {
+      const actual = chooseMovie(39, body);
+      const control = "Raiders of the Lost Ark";
+      expect(actual).toEqual(control);
+    }, 50);
+  });
 
 });
 

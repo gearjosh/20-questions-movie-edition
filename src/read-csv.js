@@ -1,7 +1,7 @@
-export function readCSV {
+export function readCSV(file, processFunction) {
   let promise = new Promise(function(resolve, reject) {
     let request = new XMLHttpRequest();
-    let url = movieList;
+    let url = file;
     request.onload = function() {
       if (this.status === 200) {
         resolve(request.response);
@@ -14,10 +14,9 @@ export function readCSV {
   });
 
   promise.then(function(response) {
-    let body = processData(response);
-    console.log(body);
+    let body = processFunction(response);
     return body;
   }, function(error){
-    console.log(error);
+    alert(error);
   });
 }
